@@ -95,21 +95,6 @@ h6 {
 i {
   color: grey; }
 
-body {
-  background-color: black;
-  text-align: center; }
-
-.content {
-  background-color: white;
-  box-sizing: border-box;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 50px;
-  width: 80%; }
-
-h1 {
-  padding-bottom: 40px; }
-
 button {
   background-color: white;
   border: 2px solid #666;
@@ -128,10 +113,28 @@ button:hover {
   border: 2px solid #000;
   color: white; }
 
+body {
+  background-color: black;
+  text-align: center; }
+
+.content {
+  background-color: white;
+  box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 50px;
+  width: 70%; }
+
+h1 {
+  padding-bottom: 40px; }
+
 .product-image {
   display: block;
   height: 400px;
   margin: 0 auto;
+  padding-bottom: 20px; }
+
+.likes {
   padding-bottom: 40px; }
 
 /*# sourceMappingURL=main.css.map */
