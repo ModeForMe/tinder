@@ -25,8 +25,13 @@ function displayProduct(data) {
 
 }
 
-function enableLikes() {
+function addEventListeners() {
+    var nextButton = document.querySelector(".next-button");
     var likeButton = document.querySelector(".like-button");
+
+    nextButton.addEventListener("click", function() {
+        getRandomProduct();
+    });
 
     likeButton.addEventListener("click", function() {
         increaseLikes();
@@ -52,4 +57,4 @@ function increaseLikes() {
 }
 
 getRandomProduct();
-enableLikes();
+addEventListeners();
