@@ -10,10 +10,29 @@ body {
     margin: 0 auto;
     padding: 50px;
     width: 70%;
+
+    @media (max-width: 700px) {
+        margin: 0;
+        width: 100%;
+    }
 }
 
 h1 {
-    padding-bottom: 40px;
+    padding-bottom: 30px;
+}
+
+h3 {
+    color: #1a1a1a;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 40px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+a {
+    color: #1a1a1a;
+    text-decoration: none;
 }
 
 .product-image {
@@ -21,6 +40,10 @@ h1 {
     height: 400px;
     margin: 0 auto;
     padding-bottom: 20px;
+
+    @media (max-width: 600px) {
+        height: 300px;
+    }
 }
 
 .likes {
