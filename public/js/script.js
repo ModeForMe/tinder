@@ -17,10 +17,12 @@ function getRandomProduct() {
 
 function displayProduct(data) {
     var imageNode = document.querySelector(".product-image");
+    var designerNode = document.querySelector(".designer-name");
     var likesNode = document.querySelector(".likes-number");
 
     imageNode.setAttribute("src", data.image);
     imageNode.setAttribute("id", data.key);
+    designerNode.innerHTML = data.designer;
     likesNode.innerHTML = data.likes;
 
 }
