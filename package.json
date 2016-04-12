@@ -1,7 +1,7 @@
 {
-  "name": "node-hapi-sass-boilerplate",
+  "name": "Swipe For Me",
   "version": "1.0.0",
-  "description": "Boilerplate for projects using Node, Hapi.js and SASS.",
+  "description": "Swipe to like fashion items",
   "main": "server.js",
   "directories": {
     "test": "test"
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/msmichellegar/node-hapi-sass-boilerplate.git"
+    "url": "git+https://github.com/modeforme/tinder.git"
   },
   "keywords": [
     "boilerplate",
@@ -23,9 +23,9 @@
   "author": "msmichellegar",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/msmichellegar/node-hapi-sass-boilerplate/issues"
+    "url": "https://github.com/modeforme/tinder/issues"
   },
-  "homepage": "https://github.com/msmichellegar/node-hapi-sass-boilerplate#readme",
+  "homepage": "https://github.com/modeforme/tinder#readme",
   "dependencies": {
     "hapi": "^13.0.0",
     "inert": "^3.2.0",
