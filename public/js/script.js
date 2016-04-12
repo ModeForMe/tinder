@@ -19,11 +19,15 @@ function displayProduct(data) {
     var imageNode = document.querySelector(".product-image");
     var designerNode = document.querySelector(".designer-name");
     var likesNode = document.querySelector(".likes-number");
+    var peopleOrPerson = document.querySelector(".people-person");
+    var wantOrWants = document.querySelector(".want-wants");
 
     imageNode.setAttribute("src", data.image);
     imageNode.setAttribute("id", data.key);
     designerNode.innerHTML = data.designer;
     likesNode.innerHTML = data.likes;
+    peopleOrPerson.innerHTML = data.likes == 1 ? "person" : "people";
+    wantOrWants.innerHTML = data.likes == 1 ? "wants" : "want";
 
 }
 
