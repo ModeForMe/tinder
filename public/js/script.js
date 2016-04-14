@@ -32,7 +32,7 @@ function addEventListeners() {
     var likeButton = document.querySelector(".like-button");
 
     nextButton.addEventListener("click", function() {
-        getRandomProduct();
+        increaseSkips();
     });
 
     likeButton.addEventListener("click", function() {
@@ -57,6 +57,25 @@ function increaseLikes() {
 
     request.send();
 }
+
+function increaseSkips() {
+    var request = new XMLHttpRequest();
+    var productId = document.querySelector(".product-image").getAttribute("id");
+
+    request.open('GET', '/api/products/' + productId + "/skip", true);
+
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+            var data = JSON.parse(request.responseText);
+
+            getRandomProduct();
+
+        }
+    };
+
+    request.send();
+}
+
 
 getRandomProduct();
 addEventListeners();
