@@ -40,6 +40,8 @@ a {
     display: block;
     height: 400px;
     margin: 0 auto;
+    max-width: 100%;
+    object-fit: cover;
     padding-bottom: 20px;
 
     @media (max-width: 600px) {

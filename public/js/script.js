@@ -1,23 +1,37 @@
-"use strict";
-
-/*global document: false */
-/*global XMLHttpRequest: false */
-
-function getRandomProduct() {
+function getAllProducts() {
     var request = new XMLHttpRequest();
 
-    request.open('GET', '/api/products/random', true);
+    request.open('GET', '/api/products/all', true);
 
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
             var data = JSON.parse(request.responseText);
 
-            displayProduct(data);
+            addEventListeners(data);
+            getRandomProduct(data);
+            preloadImages(data);
 
         }
     };
 
     request.send();
+}
+
+function preloadImages(data) {
+
+    $(data).each(function(){
+        $('<img/>')[0].src = this.image;
+    });
+
+}
+
+function getRandomProduct(data) {
+
+    var numberOfProducts = data.length;
+    var randomNumber = Math.floor(Math.random() * numberOfProducts) + 1;
+
+    displayProduct(data[randomNumber]);
+
 }
 
 function displayProduct(data) {
@@ -36,22 +50,25 @@ function displayProduct(data) {
 
 }
 
-function addEventListeners() {
+function addEventListeners(data) {
     var nextButton = document.querySelector(".next-button");
     var likeButton = document.querySelector(".like-button");
 
+    var productId = document.querySelector(".product-image").getAttribute("id");
+
     nextButton.addEventListener("click", function() {
-        increaseSkips();
+        getRandomProduct(data);
+        increaseSkips(productId);
     });
 
     likeButton.addEventListener("click", function() {
-        increaseLikes();
+        getRandomProduct(data);
+        increaseLikes(productId);
     });
 }
 
-function increaseLikes() {
+function increaseLikes(productId) {
     var request = new XMLHttpRequest();
-    var productId = document.querySelector(".product-image").getAttribute("id");
 
     request.open('GET', '/api/products/' + productId + "/like", true);
 
@@ -59,17 +76,14 @@ function increaseLikes() {
         if (request.status >= 200 && request.status < 400) {
             var data = JSON.parse(request.responseText);
 
-            getRandomProduct();
-
         }
     };
 
     request.send();
 }
 
-function increaseSkips() {
+function increaseSkips(productId) {
     var request = new XMLHttpRequest();
-    var productId = document.querySelector(".product-image").getAttribute("id");
 
     request.open('GET', '/api/products/' + productId + "/skip", true);
 
@@ -77,14 +91,10 @@ function increaseSkips() {
         if (request.status >= 200 && request.status < 400) {
             var data = JSON.parse(request.responseText);
 
-            getRandomProduct();
-
         }
     };
 
     request.send();
 }
 
-
-getRandomProduct();
-addEventListeners();
+getAllProducts();
