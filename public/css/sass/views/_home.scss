@@ -8,6 +8,7 @@ body {
     box-sizing: border-box;
     min-height: 100vh;
     margin: 0 auto;
+    overflow: hidden;
     padding: 50px;
     width: 70%;
 
@@ -16,6 +17,10 @@ body {
         padding: 50px 5px;
         width: 100%;
     }
+}
+
+.card {
+    position: relative;
 }
 
 h1 {
@@ -60,4 +65,8 @@ a {
 
 .likes {
     padding-bottom: 40px;
+}
+
+.next-button, .like-button, .likes, .designer-name {
+    display: none;
 }

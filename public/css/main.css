@@ -125,6 +125,7 @@ body {
   box-sizing: border-box;
   min-height: 100vh;
   margin: 0 auto;
+  overflow: hidden;
   padding: 50px;
   width: 70%; }
   @media (max-width: 700px) {
@@ -132,6 +133,9 @@ body {
       margin: 0;
       padding: 50px 5px;
       width: 100%; } }
+
+.card {
+  position: relative; }
 
 h1 {
   padding-bottom: 30px; }
@@ -169,5 +173,8 @@ a {
 
 .likes {
   padding-bottom: 40px; }
+
+.next-button, .like-button, .likes, .designer-name {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */

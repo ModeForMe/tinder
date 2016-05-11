@@ -8,7 +8,6 @@ function getAllProducts() {
             var data = JSON.parse(request.responseText);
 
             addEventListeners(data);
-            getRandomProduct(data);
             preloadImages(data);
 
         }
@@ -49,26 +48,51 @@ function displayProduct(data) {
         likesNode.innerHTML = data.likes;
         peopleOrPerson.innerHTML = data.likes == 1 ? "person" : "people";
         wantOrWants.innerHTML = data.likes == 1 ? "wants" : "want";
+
+        if ($(".designer-name").css("display") === "none") {
+            $(".likes").show();
+            $(".designer-name").show();
+            $(".next-button").show();
+            $(".like-button").show();
+        }
     };
 
 }
 
 function addEventListeners(data) {
+    var startButton = document.querySelector(".start-button");
     var nextButton = document.querySelector(".next-button");
     var likeButton = document.querySelector(".like-button");
 
     var productId = document.querySelector(".product-image").getAttribute("id");
 
+    startButton.addEventListener("click", function() {
+        $(".start-button").hide();
+        getRandomProduct(data);
+    });
+
     nextButton.addEventListener("click", function() {
+        // slideOut("left");
         getRandomProduct(data);
         increaseSkips(productId);
     });
 
     likeButton.addEventListener("click", function() {
+        // slideOut("right");
         getRandomProduct(data);
         increaseLikes(productId);
     });
+
+
 }
+
+// function slideOut(direction) {
+//     console.log(direction)
+//     $(".card").css({
+//         "left": "-50%",
+//         "transition": "all 10s ease",
+//     });
+// }
 
 function increaseLikes(productId) {
     var request = new XMLHttpRequest();
@@ -99,5 +123,6 @@ function increaseSkips(productId) {
 
     request.send();
 }
+
 
 getAllProducts();
