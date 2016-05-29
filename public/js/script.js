@@ -72,27 +72,17 @@ function addEventListeners(data) {
     });
 
     nextButton.addEventListener("click", function() {
-        // slideOut("left");
         getRandomProduct(data);
         increaseSkips(productId);
     });
 
     likeButton.addEventListener("click", function() {
-        // slideOut("right");
         getRandomProduct(data);
         increaseLikes(productId);
     });
 
 
 }
-
-// function slideOut(direction) {
-//     console.log(direction)
-//     $(".card").css({
-//         "left": "-50%",
-//         "transition": "all 10s ease",
-//     });
-// }
 
 function increaseLikes(productId) {
     var request = new XMLHttpRequest();
