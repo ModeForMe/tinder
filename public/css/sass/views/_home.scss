@@ -9,12 +9,12 @@ body {
     min-height: 100vh;
     margin: 0 auto;
     overflow: hidden;
-    padding: 50px;
+    padding: 2%;
     width: 70%;
 
     @media (max-width: 700px) {
         margin: 0;
-        padding: 50px 5px;
+        padding: 5% 1%;
         width: 100%;
     }
 }
@@ -64,7 +64,7 @@ a {
 }
 
 .likes {
-    padding-bottom: 40px;
+    padding-bottom: 2%;
 }
 
 .next-button, .like-button, .likes, .designer-name {
