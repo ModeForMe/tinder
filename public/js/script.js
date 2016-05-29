@@ -63,25 +63,26 @@ function addEventListeners(data) {
     var startButton = document.querySelector(".start-button");
     var nextButton = document.querySelector(".next-button");
     var likeButton = document.querySelector(".like-button");
+    var productImage = document.querySelector(".product-image");
 
-    var productId = document.querySelector(".product-image").getAttribute("id");
+    if (productImage && startButton && nextButton && likeButton) {
+        var productId = productImage.getAttribute("id");
 
-    startButton.addEventListener("click", function() {
-        $(".start-button").hide();
-        getRandomProduct(data);
-    });
+        startButton.addEventListener("click", function() {
+            $(".start-button").hide();
+            getRandomProduct(data);
+        });
 
-    nextButton.addEventListener("click", function() {
-        getRandomProduct(data);
-        increaseSkips(productId);
-    });
+        nextButton.addEventListener("click", function() {
+            getRandomProduct(data);
+            increaseSkips(productId);
+        });
 
-    likeButton.addEventListener("click", function() {
-        getRandomProduct(data);
-        increaseLikes(productId);
-    });
-
-
+        likeButton.addEventListener("click", function() {
+            getRandomProduct(data);
+            increaseLikes(productId);
+        });
+    }
 }
 
 function increaseLikes(productId) {

@@ -126,12 +126,12 @@ body {
   min-height: 100vh;
   margin: 0 auto;
   overflow: hidden;
-  padding: 50px;
+  padding: 2%;
   width: 70%; }
   @media (max-width: 700px) {
     .content {
       margin: 0;
-      padding: 50px 5px;
+      padding: 5% 1%;
       width: 100%; } }
 
 .card {
@@ -172,9 +172,31 @@ a {
   margin-bottom: 10px; }
 
 .likes {
-  padding-bottom: 40px; }
+  padding-bottom: 2%; }
 
 .next-button, .like-button, .likes, .designer-name {
   display: none; }
+
+.social-media {
+  margin: 0 auto;
+  text-align: center; }
+  .social-media li {
+    display: inline-block; }
+  .social-media h3 {
+    display: none; }
+  .social-media .twitter, .social-media .facebook, .social-media .instagram, .social-media .pinterest {
+    height: 35px;
+    margin: 0 auto;
+    padding: 10%;
+    padding-top: 30%; }
+
+.end-text {
+  padding: 5% 10%; }
+  .end-text p {
+    font-size: 18px; }
+  .end-text .designer-apply {
+    font-size: 14px; }
+    .end-text .designer-apply .link {
+      text-decoration: underline; }
 
 /*# sourceMappingURL=main.css.map */
