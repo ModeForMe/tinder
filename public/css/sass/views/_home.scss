@@ -70,3 +70,23 @@ a {
 .next-button, .like-button, .likes, .designer-name {
     display: none;
 }
+
+.social-media {
+    margin: 0 auto;
+    text-align: center;
+
+    li {
+        display: inline-block;
+    }
+
+    h3 {
+        display: none;
+    }
+
+    .twitter, .facebook, .instagram, .pinterest {
+        height: 35px;
+        margin: 0 auto;
+        padding: 10%;
+        padding-top: 30%;
+    }
+}
