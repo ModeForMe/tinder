@@ -1,3 +1,13 @@
+'use strict';
+
+if (document.cookie.indexOf('itemsSeen=') === -1) {
+    // Create empty array in cookie if it does not already exist, expire in 30 days
+    var date = new Date();
+    date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
+    document.cookie = 'itemsSeen=[]; expires=' + date.toUTCString();
+    document.cookie = 'cookie_expiry=' + Date.parse(date) + '; expires=' + date.toUTCString();
+}
+
 function getAllProducts() {
     var request = new XMLHttpRequest();
 
@@ -25,12 +35,22 @@ function preloadImages(data) {
 }
 
 function getRandomProduct(data) {
+    var itemsSeen = JSON.parse(document.cookie.split("itemsSeen=").pop().split(";").shift());
+    var expires = document.cookie.split("cookie_expiry=").pop().split(";").shift();
+    var unseenData = data.filter(function(item) {
+        return itemsSeen.indexOf(item.key) === -1;
+    });
+    var numberOfProducts = unseenData.length;
 
-    var numberOfProducts = data.length;
-    var randomNumber = Math.floor(Math.random() * numberOfProducts) + 1;
+    if (numberOfProducts > 0) {
+        var randomNumber = Math.floor(Math.random() * numberOfProducts);
 
-    displayProduct(data[randomNumber]);
-
+        itemsSeen.push(unseenData[randomNumber].key);
+        displayProduct(unseenData[randomNumber]);
+        document.cookie = 'itemsSeen=' + JSON.stringify(itemsSeen) + '; expires=' + new Date(Number(expires)); 
+    } else {
+        window.location = '/end';
+    }
 }
 
 function displayProduct(data) {
@@ -63,10 +83,9 @@ function addEventListeners(data) {
     var startButton = document.querySelector(".start-button");
     var nextButton = document.querySelector(".next-button");
     var likeButton = document.querySelector(".like-button");
-    var productImage = document.querySelector(".product-image");
+    var productId;
 
-    if (productImage && startButton && nextButton && likeButton) {
-        var productId = productImage.getAttribute("id");
+    if (document.querySelector(".product-image") && startButton && nextButton && likeButton) {
 
         startButton.addEventListener("click", function() {
             $(".start-button").hide();
@@ -74,11 +93,13 @@ function addEventListeners(data) {
         });
 
         nextButton.addEventListener("click", function() {
+            productId = document.querySelector(".product-image").getAttribute("id");
             getRandomProduct(data);
             increaseSkips(productId);
         });
 
         likeButton.addEventListener("click", function() {
+            productId = document.querySelector(".product-image").getAttribute("id");
             getRandomProduct(data);
             increaseLikes(productId);
         });

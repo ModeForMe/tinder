@@ -1,5 +1,5 @@
 {
-  "name": "swipe-for-me",
+  "name": "vote-my-mode",
   "version": "1.0.0",
   "description": "Swipe to like fashion items",
   "main": "server.js",
