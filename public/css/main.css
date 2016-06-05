@@ -171,10 +171,10 @@ a {
   font-weight: bold;
   margin-bottom: 10px; }
 
-.likes {
+.loves {
   padding-bottom: 2%; }
 
-.next-button, .like-button, .likes, .designer-name {
+.next-button, .love-button, .loves, .designer-name {
   display: none; }
 
 .social-media {

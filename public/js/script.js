@@ -56,24 +56,24 @@ function getRandomProduct(data) {
 function displayProduct(data) {
     var imageNode = document.querySelector(".product-image");
     var designerNode = document.querySelector(".designer-name");
-    var likesNode = document.querySelector(".likes-number");
+    var lovesNode = document.querySelector(".loves-number");
     var peopleOrPerson = document.querySelector(".people-person");
-    var likeOrLikes = document.querySelector(".like-likes");
+    var loveOrLoves = document.querySelector(".love-loves");
 
     imageNode.setAttribute("src", data.image);
 
     imageNode.onload = function () {
         imageNode.setAttribute("id", data.key);
         designerNode.innerHTML = data.designer;
-        likesNode.innerHTML = data.likes;
+        lovesNode.innerHTML = data.likes;
         peopleOrPerson.innerHTML = data.likes == 1 ? "person" : "people";
-        likeOrLikes.innerHTML = data.likes == 1 ? "likes" : "like";
+        loveOrLoves.innerHTML = data.likes == 1 ? "loves" : "love";
 
         if ($(".designer-name").css("display") === "none") {
-            $(".likes").show();
+            $(".loves").show();
             $(".designer-name").show();
             $(".next-button").show();
-            $(".like-button").show();
+            $(".love-button").show();
         }
     };
 
@@ -82,10 +82,10 @@ function displayProduct(data) {
 function addEventListeners(data) {
     var startButton = document.querySelector(".start-button");
     var nextButton = document.querySelector(".next-button");
-    var likeButton = document.querySelector(".like-button");
+    var loveButton = document.querySelector(".love-button");
     var productId;
 
-    if (document.querySelector(".product-image") && startButton && nextButton && likeButton) {
+    if (document.querySelector(".product-image") && startButton && nextButton && loveButton) {
 
         startButton.addEventListener("click", function() {
             $(".start-button").hide();
@@ -98,7 +98,7 @@ function addEventListeners(data) {
             increaseSkips(productId);
         });
 
-        likeButton.addEventListener("click", function() {
+        loveButton.addEventListener("click", function() {
             productId = document.querySelector(".product-image").getAttribute("id");
             getRandomProduct(data);
             increaseLikes(productId);
