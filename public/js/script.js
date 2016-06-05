@@ -58,7 +58,7 @@ function displayProduct(data) {
     var designerNode = document.querySelector(".designer-name");
     var likesNode = document.querySelector(".likes-number");
     var peopleOrPerson = document.querySelector(".people-person");
-    var wantOrWants = document.querySelector(".want-wants");
+    var likeOrLikes = document.querySelector(".like-likes");
 
     imageNode.setAttribute("src", data.image);
 
@@ -67,7 +67,7 @@ function displayProduct(data) {
         designerNode.innerHTML = data.designer;
         likesNode.innerHTML = data.likes;
         peopleOrPerson.innerHTML = data.likes == 1 ? "person" : "people";
-        wantOrWants.innerHTML = data.likes == 1 ? "wants" : "want";
+        likeOrLikes.innerHTML = data.likes == 1 ? "likes" : "like";
 
         if ($(".designer-name").css("display") === "none") {
             $(".likes").show();
