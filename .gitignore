@@ -34,7 +34,12 @@ node_modules
 
 # SASS Cache
 .sass-cache
+*.css.map
 
 # Environment variables
 .env
 env.sh
+
+# Build bundles
+public/bundle.js
+public/bundle.css
