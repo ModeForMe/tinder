@@ -12,7 +12,7 @@ Node.js, Hapi.js on backend. Redis as a database. SASS on frontent. Tests in Tap
 3. `npm run watch` and `npm run dev`
 
 ## Deploy
-`npm run build` and `npm start`
+`npm run deploy`
 
 ## Database Structure
 

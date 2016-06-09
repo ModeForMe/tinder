@@ -16,7 +16,8 @@
     "build:css": "sass src/sass/main.scss:public/bundle.css --style compressed",
     "build:js": "node node_modules/browserify/bin/cmd.js ./src/js/script.js | node node_modules/uglify-js/bin/uglifyjs -o ./public/bundle.js",
     "build": "npm run build:css && npm run build:js",
-    "dev": "nodemon --debug server.js"
+    "dev": "nodemon --debug server.js",
+    "deploy": "npm run build && npm start"
   },
   "repository": {
     "type": "git",
