@@ -10,10 +10,10 @@
     "test": "node test/*",
     "sass": "sass --watch src/sass/main.scss:public/bundle.css",
     "start": "node server.js",
-    "watch:sass": "sass --watch src/sass/main.scss:public/bundle.css",
+    "watch:sass": "./node_modules/nodemon/bin/nodemon.js ./node_modules/node-sass/bin/node-sass -e scss ./src/sass/main.scss ./public/bundle.css",
     "watch:js": "node node_modules/watchify/bin/cmd.js ./src/js/script.js -o ./public/bundle.js --verbose --poll",
-    "watch": "npm run watch:sass && npm run watch:js",
-    "build:css": "sass src/sass/main.scss:public/bundle.css --style compressed",
+    "watch": "npm run watch:js & npm run watch:sass",
+    "build:css": "./node_modules/node-sass/bin/node-sass --output-style compact src/sass/main.scss public/bundle.css",
     "build:js": "node node_modules/browserify/bin/cmd.js ./src/js/script.js | node node_modules/uglify-js/bin/uglifyjs -o ./public/bundle.js",
     "build": "npm run build:css && npm run build:js",
     "dev": "nodemon --debug server.js",
@@ -38,10 +38,12 @@
     "browserify": "^13.0.1",
     "hapi": "^13.0.0",
     "inert": "^3.2.0",
+    "node-sass": "^3.7.0",
     "redis": "^2.5.3",
     "uglify-js": "^2.6.2"
   },
   "devDependencies": {
+    "nodemon": "^1.9.2",
     "tape": "^4.5.1",
     "watchify": "^3.7.0"
   }
