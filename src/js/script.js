@@ -89,6 +89,7 @@ function addEventListeners(data) {
 
         startButton.addEventListener("click", function() {
             $(".start-button").hide();
+            $(".intro-copy").hide();
             getRandomProduct(data);
         });
 
