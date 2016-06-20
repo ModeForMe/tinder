@@ -1,5 +1,3 @@
-'use strict';
-
 if (document.cookie.indexOf('itemsSeen=') === -1) {
     // Create empty array in cookie if it does not already exist, expire in 30 days
     var date = new Date();
@@ -27,6 +25,8 @@ function getAllProducts() {
 }
 
 function preloadImages(data) {
+    var loadingGif = new Image();
+    loadingGif.src = "https://mir-s3-cdn-cf.behance.net/project_modules/disp/4ef13910395367.560e43c184ee6.gif";
 
     $(data).each(function(){
         $('<img/>')[0].src = this.image;
@@ -47,7 +47,7 @@ function getRandomProduct(data) {
 
         itemsSeen.push(unseenData[randomNumber].key);
         displayProduct(unseenData[randomNumber]);
-        document.cookie = 'itemsSeen=' + JSON.stringify(itemsSeen) + '; expires=' + new Date(Number(expires)); 
+        document.cookie = 'itemsSeen=' + JSON.stringify(itemsSeen) + '; expires=' + new Date(Number(expires));
     } else {
         window.location = '/end';
     }
@@ -88,6 +88,9 @@ function addEventListeners(data) {
     if (document.querySelector(".product-image") && startButton && nextButton && loveButton) {
 
         startButton.addEventListener("click", function() {
+            console.log($(".product-image").attr("src"));
+            $(".product-image").attr("src", "https://mir-s3-cdn-cf.behance.net/project_modules/disp/4ef13910395367.560e43c184ee6.gif");
+            console.log($(".product-image").attr("src"));
             $(".start-button").hide();
             $(".intro-copy").hide();
             getRandomProduct(data);
