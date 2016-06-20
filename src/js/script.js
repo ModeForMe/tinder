@@ -88,9 +88,7 @@ function addEventListeners(data) {
     if (document.querySelector(".product-image") && startButton && nextButton && loveButton) {
 
         startButton.addEventListener("click", function() {
-            console.log($(".product-image").attr("src"));
             $(".product-image").attr("src", "https://mir-s3-cdn-cf.behance.net/project_modules/disp/4ef13910395367.560e43c184ee6.gif");
-            console.log($(".product-image").attr("src"));
             $(".start-button").hide();
             $(".intro-copy").hide();
             getRandomProduct(data);
